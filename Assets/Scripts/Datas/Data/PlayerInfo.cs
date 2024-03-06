@@ -141,7 +141,7 @@ public class PlayerInfo : MonoBehaviour
         for (int i = 0; i < 6; i++)
         {
             string[] data = datas[i].Split(".");
-            TeamData.setCharacter[i] = int.Parse(data[i]);
+            TeamData.isSetCharacter[i] = int.Parse(data[i]);
             TeamData.character[i] = int.Parse(data[i]);
         }
     }

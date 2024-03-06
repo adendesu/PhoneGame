@@ -12,6 +12,9 @@ public class CharacterStatus : ScriptableObject
     [Header("キャラクターモデル")]
     [SerializeField] public GameObject characterModel = null;
 
+    [Header("キャラクターアイコン")]
+    [SerializeField] public Sprite characterSprite = null;
+
     [Header("キャラクター名")]
     [SerializeField] public string characterName = "";
     
@@ -28,6 +31,7 @@ public class CharacterStatus : ScriptableObject
     public int ID { get { return characterID; } }
     public string Name { get { return characterName; } }
     public GameObject Model { get { return characterModel; } }
+    public Sprite Sprite { get { return characterSprite; } }
     public int Hp { get { return characterHp; } }
     public int Attack { get { return characerAttack; } }
     public int Defense { get { return characterDefense; } }

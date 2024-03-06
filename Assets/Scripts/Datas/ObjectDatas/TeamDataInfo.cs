@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 public class TeamData
 {
-    public static int[] setCharacter = new int[6];
+    public static int[] isSetCharacter = new int[6];
     public static int[] character = new int[6];
 }
 
@@ -24,7 +24,7 @@ public class TeamDataInfo : MonoBehaviour
        
         for (int i = 0; i < 6; i++)
         {
-            setStringData += $"{TeamData.setCharacter[i]}.{TeamData.character[i]}";
+            setStringData += $"{TeamData.isSetCharacter[i]}.{TeamData.character[i]}";
             if (i < 5)
             {
                 setStringData += ",";
