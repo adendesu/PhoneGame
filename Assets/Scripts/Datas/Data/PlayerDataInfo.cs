@@ -7,6 +7,7 @@ public class PlayerData
 {
     public static int playerRank;
     public static int playerExp;
+    public static string playerName;
 }
 
 public class PlayerDataInfo : MonoBehaviour
@@ -23,7 +24,7 @@ public class PlayerDataInfo : MonoBehaviour
 
     void CreateStringData()
     {
-        setStringData = $"{PlayerData.playerRank},{PlayerData.playerExp}";
+        setStringData = $"{PlayerData.playerRank},{PlayerData.playerExp},{PlayerData.playerName}";
         DataSet();
     }
 }

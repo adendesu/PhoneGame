@@ -19,17 +19,22 @@ public class PlayerInfo : MonoBehaviour
 
     void Awake()
     {
+        DontDestroyOnLoad(gameObject);
+
         playerDataInfo.playerDataSet = WritePlayerDataTextFile;
         itemDataInfo.ItemDataSet = WriteItemDataTextFile;
         characterDataInfo.characterDataSet = WriteCharacterDataTextFile;
+        teamDataInfo.teamDataSet = WriteTeamDataTextFile;
 
         playerData = ReadPlayerDataTextFile();
         itemData = ReadItemDataTextFile();
         characterData = ReadCharacterTextFile();
+        teamData = ReadTeamTextFile();
 
         SetPlayerData();
         SetItemData();
         SetCharacterData();
+        SetTeamData();
     }
 
 
@@ -53,6 +58,13 @@ public class PlayerInfo : MonoBehaviour
     {
 
         string filePath = Application.streamingAssetsPath + "/CharacterSaveData.txt";
+        File.WriteAllText(filePath, writeText);
+    }
+
+    public void WriteTeamDataTextFile(string writeText)
+    {
+
+        string filePath = Application.streamingAssetsPath + "/TeamSaveData.txt";
         File.WriteAllText(filePath, writeText);
     }
 
@@ -111,6 +123,7 @@ public class PlayerInfo : MonoBehaviour
         string[] datas = playerData.Split(",");
         PlayerData.playerRank = int.Parse(datas[0]);
         PlayerData.playerExp = int.Parse(datas[1]);
+        PlayerData.playerName = datas[2];
     }
 
     private void SetItemData()
@@ -138,11 +151,14 @@ public class PlayerInfo : MonoBehaviour
     private void SetTeamData()
     {
         string[] datas = teamData.Split(",");
-        for (int i = 0; i < 6; i++)
+
+        for (int i = 0; i < 3; i++)
         {
             string[] data = datas[i].Split(".");
-            TeamData.isSetCharacter[i] = int.Parse(data[i]);
-            TeamData.character[i] = int.Parse(data[i]);
+            TeamData.isSetCharacter[i] = int.Parse(data[0]);
+            TeamData.character[i] = int.Parse(data[1]);
+            TeamData.characterLv[i] = int.Parse(data[2]);
+            TeamData.characterExp[i] = int.Parse(data[3]);
         }
     }
 

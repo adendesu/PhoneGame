@@ -220,6 +220,8 @@ GameObject:
   - component: {fileID: 5239408094773938871}
   - component: {fileID: 7637415662398027724}
   - component: {fileID: 9195325595903425951}
+  - component: {fileID: 5113201394365251000}
+  - component: {fileID: 499833878578789392}
   m_Layer: 5
   m_Name: CharacterIcon
   m_TagString: Untagged
@@ -286,3 +288,47 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5113201394365251000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8386253532304861566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71ce30bdcff37b1468134fb0d60c2ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterIconID: 0
+  characterIconLevel: 0
+  characterIconExp: 0
+--- !u!114 &499833878578789392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8386253532304861566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5113201394365251000}
+          m_TargetAssemblyTypeName: IconStatus, Assembly-CSharp
+          m_MethodName: SelectCharacter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
