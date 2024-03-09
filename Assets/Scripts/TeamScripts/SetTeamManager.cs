@@ -9,6 +9,7 @@ public class SetTeamManager :MonoBehaviour,IRecieveSelectCharacterMessage
     int selectNumber = 0;
     
     [SerializeField] GameObject characterScroll;
+    [SerializeField] TeamSelectUI teamSelectUI;
     public void SelectStage(int i)
     {
         selectNumber = i;
@@ -17,10 +18,23 @@ public class SetTeamManager :MonoBehaviour,IRecieveSelectCharacterMessage
 
     public void SetCharacter(int characterID,int characterLv,int characterExp)
     {
-        TeamData.isSetCharacter[selectNumber] = 1;
-        TeamData.character[selectNumber] = characterID;
-        TeamData.characterLv[selectNumber] = characterLv;
-        TeamData.characterExp[selectNumber] = characterExp;
+        bool canSet = true;
+        for(int i = 0; i < 3; i++)
+        {
+            if (TeamData.character[i] == characterID)
+            {
+                canSet = false;
+                teamSelectUI.DisplayMessage("同じキャラクターは編成できません。");
+            }
+        }
+        if(canSet == true)
+        {
+            TeamData.isSetCharacter[selectNumber] = 1;
+            TeamData.character[selectNumber] = characterID;
+            TeamData.characterLv[selectNumber] = characterLv;
+            TeamData.characterExp[selectNumber] = characterExp;
+        }
+
 
         SendUpdateMessage();
         characterScroll.SetActive(false);
