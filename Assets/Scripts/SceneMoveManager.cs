@@ -7,10 +7,17 @@ public class SceneMoveManager : MonoBehaviour
 {
     [SerializeField] string[] sceneName;
 
+    SceneMoveManager instance;
+
     Stack<string> sceneStack = new Stack<string>();
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else Destroy(gameObject);
     }
 
     public void MoveScene(string nextName) 

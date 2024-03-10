@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 public class DebugTest : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class DebugTest : MonoBehaviour
     {
 
         UniTask.WaitForSeconds(2);
-        Debug.Log($"{PlayerData.playerRank},{PlayerData.playerExp}");
+
+
+       /* Debug.Log($"{PlayerData.playerRank},{PlayerData.playerExp}");
         for(int i = 0; i < ItemData.itemPieces.Count; i++)
         {
             Debug.Log($"アイテム数{i}:{ItemData.itemPieces[i]}");
@@ -19,9 +22,12 @@ public class DebugTest : MonoBehaviour
         for(int i = 0; i < CharacterData.characterID.Count; i++)
         {
             Debug.Log($"キャラクター{CharacterData.characterID[i]}:{CharacterData.characterLevel[i]}:{CharacterData.characterExp[i]}");
-        }
+        }*/
 
     }
-
+    public void Back()
+    {
+        SceneManager.LoadScene("Title");
+    }
     
 }

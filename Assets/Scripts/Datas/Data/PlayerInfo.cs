@@ -17,10 +17,20 @@ public class PlayerInfo : MonoBehaviour
     string characterData;
     string teamData;
 
+    public static PlayerInfo playerInfoInstance;
+
+
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-
+        if (playerInfoInstance == null)
+        {
+            playerInfoInstance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         playerDataInfo.playerDataSet = WritePlayerDataTextFile;
         itemDataInfo.ItemDataSet = WriteItemDataTextFile;
         characterDataInfo.characterDataSet = WriteCharacterDataTextFile;
@@ -35,6 +45,8 @@ public class PlayerInfo : MonoBehaviour
         SetItemData();
         SetCharacterData();
         SetTeamData();
+
+       
     }
 
 
