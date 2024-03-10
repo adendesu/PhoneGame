@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
+using UniRx;
 
 public class PlayerInfoPresenter : MonoBehaviour
 {
@@ -11,10 +12,11 @@ public class PlayerInfoPresenter : MonoBehaviour
     async UniTask Start()
     {
         await playerInfoModel.UpdatePlayerData();
+        playerInfoModel.playerExp.Subscribe(_ => DisplayUI());
         DisplayUI();
     }
     void DisplayUI()
     {
-        playerUI.DisplayPlayerInfo(playerInfoModel.playerName, playerInfoModel.playerRank.ToString());
+        playerUI.DisplayPlayerInfo(playerInfoModel.playerName.Value, playerInfoModel.playerRank.Value.ToString(),playerInfoModel.playerExp.Value);
     }
 }
