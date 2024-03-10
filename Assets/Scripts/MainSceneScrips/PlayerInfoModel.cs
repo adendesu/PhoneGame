@@ -9,7 +9,20 @@ public class PlayerInfoModel : MonoBehaviour
     [System.NonSerialized] public int playerRank;
     [System.NonSerialized] public int playerExp;
 
-   
+    [SerializeField] GameObject intefaceObj;
+
+   void RankUp(int exp)
+    {
+        playerRank = exp;
+        PlayerData.playerExp = exp;
+        int rank = exp / 100;
+        if (playerRank < rank)
+        {
+            playerRank = rank;
+            PlayerData.playerRank = rank;
+            intefaceObj.GetComponent<IUpdateMainViewMessage>().UpdateRank();
+        }
+    }
 
    public async UniTask UpdatePlayerData()
     {
