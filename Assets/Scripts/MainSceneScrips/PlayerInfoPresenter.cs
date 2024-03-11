@@ -18,5 +18,6 @@ public class PlayerInfoPresenter : MonoBehaviour
     void DisplayUI()
     {
         playerUI.DisplayPlayerInfo(playerInfoModel.playerName.Value, playerInfoModel.playerRank.Value.ToString(),playerInfoModel.playerExp.Value);
+        Debug.Log(playerInfoModel.playerName.Value);
     }
 }
