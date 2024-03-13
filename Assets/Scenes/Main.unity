@@ -205,7 +205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 15859366}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 807072182}
+        m_TargetAssemblyTypeName: SceneMoveManager, Assembly-CSharp
+        m_MethodName: MoveScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ButtleScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &15859366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,9 +582,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u540D\u7121\u3057"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 339001ed5e51ed9459f282982fe22ca4, type: 2}
-  m_sharedMaterial: {fileID: -556330991455649212, guid: 339001ed5e51ed9459f282982fe22ca4,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1080,6 +1091,7 @@ MonoBehaviour:
   sceneName:
   - Main
   - SelectCharacter
+  - ButtleScene
 --- !u!4 &807072183
 Transform:
   m_ObjectHideFlags: 0
@@ -1388,9 +1400,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Buttle
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 339001ed5e51ed9459f282982fe22ca4, type: 2}
-  m_sharedMaterial: {fileID: -556330991455649212, guid: 339001ed5e51ed9459f282982fe22ca4,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
