@@ -788,7 +788,7 @@ GameObject:
   - component: {fileID: 629003431136930865}
   m_Layer: 0
   m_Name: Unity-ChanWGS7
-  m_TagString: Untagged
+  m_TagString: character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

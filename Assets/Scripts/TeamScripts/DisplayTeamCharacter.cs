@@ -39,12 +39,12 @@ public class DisplayTeamCharacter : MonoBehaviour,IRecieveDisplayMessage
 
     void SetCharacter(int i)
     {
-        if (TeamData.isSetCharacter[i] == 0)
+        if (TeamData.isSetCharacter[i] == -1)
         {
             stagesLv[i].SetActive(false);
             selectImage[i].GetComponent<CanvasGroup>().alpha = 1;
         }
-        else if (TeamData.isSetCharacter[i] == 1)
+        else
         {
             stagesLv[i].SetActive(true);
             if (selectedCharacters[i] == null)

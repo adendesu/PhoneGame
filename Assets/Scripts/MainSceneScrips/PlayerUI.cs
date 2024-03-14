@@ -14,7 +14,6 @@ public class PlayerUI : MonoBehaviour
         playerName.text = name;
         playerRank.text = rank;
         playerExpSlider.value = exp;
-        Debug.Log(exp);
     }
         
 

@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class IconStatus : MonoBehaviour
 {
+    public int characterNumber;
     public int characterIconID;
     public int characterIconLevel;
     public int characterIconExp;
@@ -15,6 +16,6 @@ public class IconStatus : MonoBehaviour
         ExecuteEvents.Execute<IRecieveSelectCharacterMessage>(
             target:setTeam,
             eventData:null,
-            functor:(recieveTarget,y)=> recieveTarget.SetCharacter(characterIconID, characterIconLevel, characterIconExp));
+            functor:(recieveTarget,y)=> recieveTarget.SetCharacter(characterNumber,characterIconID, characterIconLevel, characterIconExp));
     }
 }

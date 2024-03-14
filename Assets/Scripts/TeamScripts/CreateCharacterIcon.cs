@@ -17,6 +17,7 @@ public class CreateCharacterIcon : MonoBehaviour
             instansedIcon.transform.parent = gameObject.transform;
 
             IconStatus iconStatus = instansedIcon.GetComponent<IconStatus>();
+            iconStatus.characterNumber = characterDatas.characterStatuses[CharacterData.characterID[i]].characterNumber;
             iconStatus.characterIconID = CharacterData.characterID[i];
             iconStatus.characterIconLevel = CharacterData.characterLevel[i];
             iconStatus.characterIconExp = CharacterData.characterExp[i];

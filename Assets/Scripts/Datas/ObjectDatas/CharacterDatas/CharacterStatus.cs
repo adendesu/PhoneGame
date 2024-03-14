@@ -9,6 +9,9 @@ public class CharacterStatus : ScriptableObject
     [Header("キャラクターID")]
     [SerializeField] public int characterID = 0;
 
+    [Header("キャラクター種類")]
+    [SerializeField] public int characterNumber = 0;
+
     [Header("キャラクターモデル")]
     [SerializeField] public GameObject characterModel = null;
 
@@ -29,6 +32,7 @@ public class CharacterStatus : ScriptableObject
 
 
     public int ID { get { return characterID; } }
+    public int Number { get { return characterNumber; } }
     public string Name { get { return characterName; } }
     public GameObject Model { get { return characterModel; } }
     public Sprite Sprite { get { return characterSprite; } }

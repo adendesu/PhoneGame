@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CharacterStatus_4
   m_EditorClassIdentifier: 
   characterID: 4
+  characterNumber: 1
   characterModel: {fileID: 7810027796119998124, guid: c8d6c8ce854d4fc4cb8d51687c3a7661,
     type: 3}
   characterSprite: {fileID: 0}

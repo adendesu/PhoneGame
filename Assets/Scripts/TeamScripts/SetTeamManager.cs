@@ -16,12 +16,12 @@ public class SetTeamManager :MonoBehaviour,IRecieveSelectCharacterMessage
         characterScroll.SetActive(true);
     }
 
-    public void SetCharacter(int characterID,int characterLv,int characterExp)
+    public void SetCharacter(int characterNumber,int characterID,int characterLv,int characterExp)
     {
         bool canSet = true;
         for(int i = 0; i < 3; i++)
         {
-            if (TeamData.character[i] == characterID)
+            if (TeamData.isSetCharacter[i] == characterNumber)
             {
                 canSet = false;
                 teamSelectUI.DisplayMessage("同じキャラクターは編成できません。");
@@ -29,7 +29,7 @@ public class SetTeamManager :MonoBehaviour,IRecieveSelectCharacterMessage
         }
         if(canSet == true)
         {
-            TeamData.isSetCharacter[selectNumber] = 1;
+            TeamData.isSetCharacter[selectNumber] = characterNumber;
             TeamData.character[selectNumber] = characterID;
             TeamData.characterLv[selectNumber] = characterLv;
             TeamData.characterExp[selectNumber] = characterExp;

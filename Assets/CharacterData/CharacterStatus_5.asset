@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: CharacterStatus_5
   m_EditorClassIdentifier: 
   characterID: 5
+  characterNumber: 0
   characterModel: {fileID: 8510770184840720920, guid: 184ec18716b348143a32613f62fd077a,
     type: 3}
   characterSprite: {fileID: 0}
-  characterName: "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093(\u79CB\u670D)"
+  characterName: "\u3053\u306F\u304F\u3061\u3083\u3093(\u79CB\u670D)"
   characterHp: 0
   characerAttack: 0
   characterDefense: 0

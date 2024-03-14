@@ -15,19 +15,27 @@ public class CharacterGenerater : ButtleManager
     {
        for(int i = 0; i < 3; i++)
         {
-            if (TeamData.isSetCharacter[i] == 1)
+            if (TeamData.isSetCharacter[i] != -1)
             {
                 GameObject chara = Instantiate(characterDatas.characterStatuses[TeamData.character[i]].characterModel,genePoint[i].transform);
                 ButtleCharacterStatus buttleCharacterStatus = chara.AddComponent<ButtleCharacterStatus>();
+
+                buttleCharacterStatus.stageNumber = i;
                 buttleCharacterStatus.max = characterDatas.characterStatuses[TeamData.character[i]].characterHp * TeamData.characterLv[i];
                 buttleCharacterStatus.hp.Value = (float)characterDatas.characterStatuses[TeamData.character[i]].characterHp * TeamData.characterLv[i];
                 buttleCharacterStatus.attack.Value = characterDatas.characterStatuses[TeamData.character[i]].characerAttack * TeamData.characterLv[i];
                 buttleCharacterStatus.defense.Value = characterDatas.characterStatuses[TeamData.character[i]].characterDefense * TeamData.characterLv[i];
-                buttleScripts.buttleCharacterStatus[i] = buttleCharacterStatus;
+
+                ButtleScripts.buttleCharacterStatus[i] = chara.GetComponent<ButtleCharacterStatus>();
+                buttleCharacterStatus.hp.Subscribe(_ => buttleScripts.SetCharacterView(i,buttleCharacterStatus.hp.Value, buttleCharacterStatus.max));
+
                 buttleScripts.SendCharacterView(i,characterDatas.characterStatuses[TeamData.character[i]].characterSprite, characterDatas.characterStatuses[TeamData.character[i]].characterName);
+                buttleScripts.SetCharacterView(i, buttleCharacterStatus.hp.Value, buttleCharacterStatus.max);
+
             }
             else
             {
+                ButtleScripts.buttleCharacterStatus[i] = null;
                 buttleScripts.SendDisView(i);
             }
         }
