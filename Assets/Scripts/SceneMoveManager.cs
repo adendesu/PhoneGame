@@ -7,7 +7,7 @@ public class SceneMoveManager : MonoBehaviour
 {
     [SerializeField] string[] sceneName;
 
-    SceneMoveManager instance;
+   public static SceneMoveManager instance;
 
     Stack<string> sceneStack = new Stack<string>();
     private void Awake()

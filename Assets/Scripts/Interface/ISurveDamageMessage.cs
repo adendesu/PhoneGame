@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ISurveDamageMessage
 {
-    void ApplyDamage();
+    void ApplyDamage(int damage);
 }
