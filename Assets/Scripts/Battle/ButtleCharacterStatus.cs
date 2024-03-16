@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 
-public class ButtleCharacterStatus : MonoBehaviour
+public class ButtleCharacterStatus : MonoBehaviour,ISurveDamageMessage
 {
     [System.NonSerialized] public int stageNumber;
 
@@ -12,9 +12,10 @@ public class ButtleCharacterStatus : MonoBehaviour
     [System.NonSerialized] public ReactiveProperty<int> attack = new ReactiveProperty<int>(1);
     [System.NonSerialized] public ReactiveProperty<int> defense = new ReactiveProperty<int>(0);
 
-    void ApplyDamage(int damage)
+   public void ApplyDamage(int ATK,float skill)
     {
-        hp.Value -= damage * (defense.Value / 100);
+        int damage = (ATK / 2) - (defense.Value / 4);
+        hp.Value -= damage * skill;
     }
 
 

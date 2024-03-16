@@ -1,23 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
-public class KohakuSummer : MonoBehaviour, CharacterBattleSkillIntereface
+public class BasisCharacter : MonoBehaviour, CharacterBattleSkillIntereface
 {
     ButtleCharacterStatus buttleCharacterStatus;
-   public void NomalAttack(GameObject target) 
+    public void NomalAttack(GameObject target)
     {
         GetStatus();
         int damage = buttleCharacterStatus.attack.Value;
-        target.GetComponent<ISurveDamageMessage>().ApplyDamage(damage);
+        target.GetComponent<ISurveDamageMessage>().ApplyDamage(buttleCharacterStatus.attack.Value,1);
+
+    }
+    public void SkillAttack(GameObject target)
+    {
         
     }
-   public void SkillAttack() 
-    {
-        GetStatus();
-    }
-   public void BigSkillAttack() 
+    public void BigSkillAttack()
     {
         GetStatus();
     }
@@ -28,6 +27,6 @@ public class KohakuSummer : MonoBehaviour, CharacterBattleSkillIntereface
         {
             buttleCharacterStatus = gameObject.GetComponent<ButtleCharacterStatus>();
         }
-        
+
     }
 }

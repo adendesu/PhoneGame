@@ -5,6 +5,6 @@ using UnityEngine;
 public interface CharacterBattleSkillIntereface
 {
   public  void NomalAttack(GameObject target);
-  public  void SkillAttack();
+  public  void SkillAttack(GameObject target);
    public void BigSkillAttack();
 }
