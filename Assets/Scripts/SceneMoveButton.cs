@@ -11,7 +11,7 @@ public class SceneMoveButton : MonoBehaviour
     }
     public void OnNextButton(string next)
     {
-        sceneMoveManager.BackScene();
+        sceneMoveManager.MoveScene(next);
     }
     public void OnBackButton()
     {

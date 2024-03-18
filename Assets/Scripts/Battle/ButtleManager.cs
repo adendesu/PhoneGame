@@ -11,12 +11,7 @@ public class ButtleManager : MonoBehaviour
         await GenerateCharacter();
         await SetSubscribe();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     protected virtual async UniTask GenerateCharacter() { }
     protected virtual async UniTask SetSubscribe() { }

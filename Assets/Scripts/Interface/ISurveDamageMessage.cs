@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ISurveDamageMessage
 {
-   public void ApplyDamage(int ATK,float skillDamege);
+   public void ApplyDamage(GameObject target,int ATK,float skillDamege);
 }

@@ -1,17 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 
 public class DebugTest : MonoBehaviour
 {
+    private int[] a = new int[2];
     // Start is called before the first frame update
-    async UniTask Start()
+    void Start()
     {
 
-        UniTask.WaitForSeconds(2);
-
+        Debug.Log("start");
+        for (int i = 0; i < 2; i++)
+        {
+            a[i] = i;
+        }
 
        /* Debug.Log($"{PlayerData.playerRank},{PlayerData.playerExp}");
         for(int i = 0; i < ItemData.itemPieces.Count; i++)
@@ -25,6 +31,16 @@ public class DebugTest : MonoBehaviour
         }*/
 
     }
+
+    async UniTask Update()
+    {
+        Debug.Log("update");
+        for (int i = 0; i < 2; i++)
+        {
+            Debug.Log(a[i]);
+        }
+    }
+
     public void Back()
     {
         SceneManager.LoadScene("Title");

@@ -9,7 +9,7 @@ public class BasisCharacter : MonoBehaviour, CharacterBattleSkillIntereface
     {
         GetStatus();
         int damage = buttleCharacterStatus.attack.Value;
-        target.GetComponent<ISurveDamageMessage>().ApplyDamage(buttleCharacterStatus.attack.Value,1);
+        target.GetComponent<ISurveDamageMessage>().ApplyDamage(target,buttleCharacterStatus.attack.Value,1);
 
     }
     public void SkillAttack(GameObject target)

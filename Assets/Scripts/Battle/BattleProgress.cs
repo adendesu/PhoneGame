@@ -7,7 +7,7 @@ public class BattleProgress : MonoBehaviour
 {
     Queue<int> battleTask;
     GameObject[] playerCharacter;
-    GameObject[] EnemyCharacter;
+    GameObject[] enemyCharacter;
 
     int battleCharacters = 0;
 
@@ -21,22 +21,18 @@ public class BattleProgress : MonoBehaviour
 
     int task;
     // Start is called before the first frame update
-   async UniTask Start()
+   void Start()
     {
-        await GetCharacter();
-        await GetEnemy();
+         GetCharacter();
+         GetEnemy();
+     
     }
 
     // Update is called once per frame
-    async UniTask Update()
+    async  UniTask Update()
     {
         
-        if (battleTask?.Peek() == null)
-        {
-            
-            
-        }
-        else
+        if (battleTask.Count == 0)
         {
             if (characterCount < characterMax)
             {
@@ -51,11 +47,12 @@ public class BattleProgress : MonoBehaviour
         switch (battleTask.Dequeue())
         {
             case 0:
-                await WeekAttack(characterCount, EnemyCharacter[eNum]);
+                await WeekAttack(characterCount, enemyCharacter[eNum]);
                 characterCount++;
                     break;
             case 1:
-                await EnemyAttack(enemyCount, Random.Range(0, playerCharacter.Length));
+                await EnemyAttack(enemyCount, Random.Range(0, characterCount));
+                enemyCount++;
                     break;
 
 
@@ -74,19 +71,19 @@ public class BattleProgress : MonoBehaviour
     async UniTask EnemyAttack(int i, int targetNum)
     {
         GameObject target = playerCharacter[targetNum];
-        playerCharacter[i].GetComponent<BasisCharacter>().NomalAttack(target);
+        enemyCharacter[i].GetComponent<BasisCharacter>().NomalAttack(target);
     }
 
-    async UniTask GetCharacter()
+    void GetCharacter()
     {
         playerCharacter = GameObject.FindGameObjectsWithTag("character");
         characterMax = playerCharacter.Length;
     }
 
-    async UniTask GetEnemy()
+    void GetEnemy()
     {
-       EnemyCharacter = GameObject.FindGameObjectsWithTag("enemy");
-        enemyMax = EnemyCharacter.Length;
+       enemyCharacter = GameObject.FindGameObjectsWithTag("enemy");
+        enemyMax = enemyCharacter.Length;
     }
 
 }
