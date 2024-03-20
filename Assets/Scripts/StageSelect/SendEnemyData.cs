@@ -6,6 +6,7 @@ using UnityEngine;
 public class SendEnemyData: MonoBehaviour
 {
     private StageEnemyData stageEnemyData;
+    [SerializeField] private SceneMoveButton sceneMoveButton;
     public void OnClickStage()
     {
         stageEnemyData = gameObject.GetComponent<StageEnemyData>();
@@ -17,5 +18,6 @@ public class SendEnemyData: MonoBehaviour
             enemySaver.enemyIDs.Add(stageEnemyData.enemyID[i]);
             enemySaver.enemyLvs.Add(stageEnemyData.enemyLv[i]);
         }
+        sceneMoveButton.OnNextButton("SelectCharacter");
     }
 }
