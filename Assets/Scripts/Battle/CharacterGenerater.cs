@@ -17,8 +17,9 @@ public class CharacterGenerater : ButtleManager
         {
             if (TeamData.isSetCharacter[i] != -1)
             {
-                GameObject chara = Instantiate(characterDatas.characterStatuses[TeamData.character[i]].characterModel,genePoint[i].transform);
+                GameObject chara = Instantiate(characterDatas.characterStatuses[TeamData.character[i]].characterModel,genePoint[i].transform.position,Quaternion.Euler(0,90,0));
                 ButtleCharacterStatus buttleCharacterStatus = chara.AddComponent<ButtleCharacterStatus>();
+                BasisCharacter basisCharacter = chara.AddComponent<BasisCharacter>();
 
                 buttleCharacterStatus.stageNumber = i;
                 buttleCharacterStatus.max = characterDatas.characterStatuses[TeamData.character[i]].characterHp * TeamData.characterLv[i];

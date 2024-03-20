@@ -13,11 +13,11 @@ public class DebugTest : MonoBehaviour
     void Start()
     {
 
-        Debug.Log("start");
+       /* Debug.Log("start");
         for (int i = 0; i < 2; i++)
         {
             a[i] = i;
-        }
+        }*/
 
        /* Debug.Log($"{PlayerData.playerRank},{PlayerData.playerExp}");
         for(int i = 0; i < ItemData.itemPieces.Count; i++)
@@ -32,14 +32,14 @@ public class DebugTest : MonoBehaviour
 
     }
 
-    async UniTask Update()
+   /* async UniTask Update()
     {
         Debug.Log("update");
         for (int i = 0; i < 2; i++)
         {
             Debug.Log(a[i]);
         }
-    }
+    }*/
 
     public void Back()
     {

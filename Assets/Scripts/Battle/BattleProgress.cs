@@ -25,7 +25,7 @@ public class BattleProgress : MonoBehaviour
     {
          GetCharacter();
          GetEnemy();
-     
+         UniTask.WaitForSeconds(2);
     }
 
     // Update is called once per frame
