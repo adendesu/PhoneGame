@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyDataSaver : MonoBehaviour
 {
-    public List<int> enemyIDs = new List<int>();
-    public List<int> enemyLvs = new List<int>();
+   [System.NonSerialized] public List<int> enemyIDs = new List<int>();
+   [System.NonSerialized] public List<int> enemyLvs = new List<int>();
     
     private static EnemyDataSaver enemyDataSaverinstance;
     private void Awake()
