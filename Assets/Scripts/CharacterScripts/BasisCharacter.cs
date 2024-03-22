@@ -8,6 +8,7 @@ using Sequence = DG.Tweening.Sequence;
 
 public class BasisCharacter : MonoBehaviour, CharacterBattleSkillIntereface
 {
+    public GameObject manager { set; private get; }
    void Start()
     {
         if (gameObject.tag == "character")
@@ -24,7 +25,7 @@ public class BasisCharacter : MonoBehaviour, CharacterBattleSkillIntereface
     {
         GetStatus();
         int damage = buttleCharacterStatus.attack.Value;
-        target.GetComponent<ISurveDamageMessage>().ApplyDamage(target,buttleCharacterStatus.attack.Value,1);
+        manager.GetComponent<ApplyDamageScript>().ApplyDamage(target,damage,1);
 
     }
     public void SkillAttack(GameObject target)

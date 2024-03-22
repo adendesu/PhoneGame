@@ -5,7 +5,6 @@ using UniRx;
 
 public class ButtleCharacterStatus : MonoBehaviour
 {
-    private GameObject thisGameObject;
         
     [System.NonSerialized] public int stageNumber;
 
@@ -14,14 +13,5 @@ public class ButtleCharacterStatus : MonoBehaviour
     [System.NonSerialized] public ReactiveProperty<int> attack = new ReactiveProperty<int>(1);
     [System.NonSerialized] public ReactiveProperty<int> defense = new ReactiveProperty<int>(0);
 
-   public  ButtleCharacterStatus(GameObject obj,int i, int m, float h, int a, int d)
-   {
-       thisGameObject = obj;
-        stageNumber = i;
-        max = m;
-        hp.Value = h;
-        attack.Value = a;
-        defense.Value = d;
-    }
 
 }
