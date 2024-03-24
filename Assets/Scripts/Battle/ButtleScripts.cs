@@ -9,7 +9,8 @@ public class ButtleScripts : ButtleManager
    /*[System.NonSerialized]*/ public static ButtleCharacterStatus[] buttleCharacterStatus = new ButtleCharacterStatus[3];
     [SerializeField] ButtleCharacterView buttleCharacterView;
     List<(int number, ButtleCharacterStatus status)> statusTuple;
-    
+
+   [SerializeField] private BattleCharacterStatusModel battleCharacterStatusModel;
     // Start is called before the first frame update
  
 
@@ -29,15 +30,14 @@ public class ButtleScripts : ButtleManager
     public void SetCharacterView(int number, float hp, int max)
     {
         buttleCharacterView.DisplayCharacterView(number, hp, max);
+        if (hp <= 0)
+        {
+         //   battleCharacterStatusModel.DeathMotion(number);
+        }
     }
 
-    protected override async UniTask SetSubscribe()
+    public void SendDeathMotion(int i)
     {
-      /*  GameObject[] character = GameObject.FindGameObjectsWithTag("character");
-        for (int i = 0; i < character.Length; i++)
-        {
-            Debug.Log(character[i].GetComponent<ButtleCharacterStatus>().hp.Value);
-           // character[i].GetComponent<ButtleCharacterStatus>().hp.Subscribe(_ => SetCharacterView(i, character[i].GetComponent<ButtleCharacterStatus>().hp.Value, character[i].GetComponent<ButtleCharacterStatus>().max));
-        }*/
+     //   battleCharacterStatusModel.DeathMotion(i);
     }
 }

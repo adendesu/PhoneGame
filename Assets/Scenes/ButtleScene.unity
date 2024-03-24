@@ -2610,6 +2610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttleCharacterView: {fileID: 606658753}
+  battleCharacterStatusModel: {fileID: 0}
 --- !u!114 &1079462943
 MonoBehaviour:
   m_ObjectHideFlags: 0

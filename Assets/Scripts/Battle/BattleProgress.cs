@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using Unity.VisualScripting;
+using Sequence = DG.Tweening.Sequence;
+
 public class BattleProgress : MonoBehaviour
 {
     Queue<int> battleTask = new Queue<int>();
@@ -29,68 +32,74 @@ public class BattleProgress : MonoBehaviour
          GetCharacter();
          GetEnemy();
          Sequence sequence = DOTween.Sequence();
-         sequence.AppendInterval(2)
-             .OnComplete( () => canBattle = true);
+         sequence.AppendInterval(3)
+             .OnComplete( () => Progress());
           
     }
 
     // Update is called once per frame
-    async  UniTask Update()
+    async  UniTask Progress()
     {
-        if (canBattle)
-        {
-            if (battleTask.Count == 0)
-            {
-                if (characterCount <= characterMax)
-                {
-                    battleTask.Enqueue(1);
-                    characterCount++;
-                }
-                else if (enemyCount <= enemyMax)
-                {
-                    battleTask.Enqueue(2);
-                    enemyCount++;
-                }
-            }
+       // if (canBattle)
+       // {
 
-            switch (battleTask.Dequeue())
-            {
-                case 1:
-                    await WeekAttack(characterCount, enemyCharacter[eNum]);
-                    
-                    Debug.Log("characterAttack");
+       
+       while(true){
+           if (battleTask.Count == 0)
+           {
+               if (characterCount < characterMax)
+               {
+                   battleTask.Enqueue(1);
                    
-                    break;
-                case 2:
-                    await EnemyAttack(enemyCount, Random.Range(0, characterCount));
-                    
-                    Debug.Log("EnemyAttack");
+               }
+               else if (enemyCount < enemyMax)
+               {
+                   battleTask.Enqueue(2);
+                   
+               }
+           }
 
-                    break;
+           switch (battleTask.Dequeue())
+           {
+               case 1:
+                   await WeekAttack(characterCount, enemyCharacter[eNum]);
+                   characterCount++;
+
+
+                   break;
+               case 2:
+                   await EnemyAttack(enemyCount, Random.Range(0, characterCount));
+                   enemyCount++;
+
+
+                   break;
 
 
 
-            }
+           }
 
-            
-            if (characterCount >= characterMax && enemyCount >= enemyMax)
-            {
-                characterCount = 0;
-                enemyCount = 0;
-            }
+           if (characterCount == characterMax && enemyCount == enemyMax)
+           {
+               characterCount = 0;
+               enemyCount = 0;
+           }
 
-        }
+           UniTask.Delay(300);
+       }
+       //  }
     }
     async UniTask WeekAttack(int i,GameObject target)
     {
         playerCharacter[i].GetComponent<BasisCharacter>().NomalAttack(target);
-        await UniTask.Delay(2000);
+       
+        await UniTask.Delay(3000);
     }
     async UniTask EnemyAttack(int i, int targetNum)
     {
         GameObject target = playerCharacter[targetNum];
         enemyCharacter[i].GetComponent<BasisCharacter>().NomalAttack(target);
-        await UniTask.Delay(2000);
+        Debug.Log(targetNum);
+        await UniTask.Delay(3000);
     }
 
     void GetCharacter()

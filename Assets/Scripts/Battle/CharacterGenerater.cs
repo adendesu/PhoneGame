@@ -26,6 +26,7 @@ public class CharacterGenerater : ButtleManager
             buttleCharacterStatus.stageNumber = i;
             buttleCharacterStatus.max =
                 enemyDatas.enemyStatuses[enemyDataSaver.enemyIDs[i]].Hp * enemyDataSaver.enemyLvs[i];
+            buttleCharacterStatus.stageNumber = i;
             buttleCharacterStatus.hp.Value = (float)enemyDatas.enemyStatuses[enemyDataSaver.enemyIDs[i]].Hp *
                                              enemyDataSaver.enemyLvs[i];
             buttleCharacterStatus.attack.Value = enemyDatas.enemyStatuses[enemyDataSaver.enemyIDs[i]].Attack *
@@ -33,7 +34,7 @@ public class CharacterGenerater : ButtleManager
             
             buttleCharacterStatus.defense.Value = enemyDatas.enemyStatuses[enemyDataSaver.enemyIDs[i]].Defense *
                                                   enemyDataSaver.enemyLvs[i];
-
+            buttleCharacterStatus.hp.Subscribe(_ => buttleScripts.SendDeathMotion(buttleCharacterStatus.stageNumber));
 
         }
         
@@ -54,11 +55,11 @@ public class CharacterGenerater : ButtleManager
                                                TeamData.characterLv[i];
                 buttleCharacterStatus.defense.Value =
                     characterDatas.characterStatuses[TeamData.character[i]].characterDefense * TeamData.characterLv[i];
-                ;
+                
               
                 
                 ButtleScripts.buttleCharacterStatus[i] = chara.GetComponent<ButtleCharacterStatus>();
-                buttleCharacterStatus.hp.Subscribe(_ => buttleScripts.SetCharacterView(i,buttleCharacterStatus.hp.Value, buttleCharacterStatus.max));
+                buttleCharacterStatus.hp.Subscribe(_ => buttleScripts.SetCharacterView(buttleCharacterStatus.stageNumber,buttleCharacterStatus.hp.Value, buttleCharacterStatus.max));
 
                 buttleScripts.SendCharacterView(i,characterDatas.characterStatuses[TeamData.character[i]].characterSprite, characterDatas.characterStatuses[TeamData.character[i]].characterName);
                 buttleScripts.SetCharacterView(i, buttleCharacterStatus.hp.Value, buttleCharacterStatus.max);
