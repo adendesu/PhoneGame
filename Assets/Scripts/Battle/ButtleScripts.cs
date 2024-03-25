@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,9 +12,16 @@ public class ButtleScripts : ButtleManager
     List<(int number, ButtleCharacterStatus status)> statusTuple;
 
    [SerializeField] private BattleCharacterStatusModel battleCharacterStatusModel;
-    // Start is called before the first frame update
- 
 
+   [SerializeField] private BattleProgress battleProgress;
+    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        battleCharacterStatusModel.characterCount.Subscribe(_ => battleProgress.GetCharacter());
+        battleCharacterStatusModel.enemyCount.Subscribe(_ => battleProgress.GetEnemy());
+
+    }
     // Update is called once per frame
 
    public void SendCharacterView(int number, Sprite sp, string n)
@@ -30,14 +38,11 @@ public class ButtleScripts : ButtleManager
     public void SetCharacterView(int number, float hp, int max)
     {
         buttleCharacterView.DisplayCharacterView(number, hp, max);
-        if (hp <= 0)
-        {
-         //   battleCharacterStatusModel.DeathMotion(number);
-        }
+       
     }
 
-    public void SendDeathMotion(int i)
+    public void SendDeathMotion(string tagName,int i)
     {
-     //   battleCharacterStatusModel.DeathMotion(i);
+        battleCharacterStatusModel.DeathMotion(tagName,i);
     }
 }

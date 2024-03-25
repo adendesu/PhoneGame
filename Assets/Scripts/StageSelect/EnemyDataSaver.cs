@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyDataSaver : MonoBehaviour
 {
+    [System.NonSerialized] public int thisStageNumber; 
+    [System.NonSerialized] public List<int> enemyCounts = new List<int>();
    [System.NonSerialized] public List<int> enemyIDs = new List<int>();
    [System.NonSerialized] public List<int> enemyLvs = new List<int>();
     

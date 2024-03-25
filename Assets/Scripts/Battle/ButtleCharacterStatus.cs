@@ -7,7 +7,8 @@ public class ButtleCharacterStatus : MonoBehaviour
 {
         
     [System.NonSerialized] public int stageNumber;
-
+    [System.NonSerialized] public string tagName;
+    
     [System.NonSerialized] public int max;
     [System.NonSerialized] public ReactiveProperty<float> hp = new ReactiveProperty<float>(0);
     [System.NonSerialized] public ReactiveProperty<int> attack = new ReactiveProperty<int>(1);

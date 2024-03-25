@@ -436,6 +436,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a0aa00151454098be67dcbef36aae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageNumber: 0
+  enemyCount: 02000000
   enemyID: 0000000000000000
   enemyLv: 0100000001000000
 --- !u!114 &768608344
@@ -780,6 +782,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a0aa00151454098be67dcbef36aae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageNumber: 0
+  enemyCount: 
   enemyID: 
   enemyLv: 
 --- !u!114 &962714615
@@ -914,6 +918,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a0aa00151454098be67dcbef36aae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageNumber: 0
+  enemyCount: 
   enemyID: 
   enemyLv: 
 --- !u!114 &1471822315
@@ -1116,6 +1122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a0aa00151454098be67dcbef36aae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageNumber: 0
+  enemyCount: 
   enemyID: 
   enemyLv: 
 --- !u!114 &1857442826

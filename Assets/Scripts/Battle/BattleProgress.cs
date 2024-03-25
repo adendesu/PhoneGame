@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
+
 using Sequence = DG.Tweening.Sequence;
 
 public class BattleProgress : MonoBehaviour
@@ -78,7 +79,7 @@ public class BattleProgress : MonoBehaviour
 
            }
 
-           if (characterCount == characterMax && enemyCount == enemyMax)
+           if (characterCount >= characterMax && enemyCount >= enemyMax)
            {
                characterCount = 0;
                enemyCount = 0;
@@ -102,16 +103,21 @@ public class BattleProgress : MonoBehaviour
         await UniTask.Delay(3000);
     }
 
-    void GetCharacter()
+  public  void GetCharacter()
     {
         playerCharacter = GameObject.FindGameObjectsWithTag("character");
         characterMax = playerCharacter.Length;
     }
 
-    void GetEnemy()
+   public void GetEnemy()
     {
        enemyCharacter = GameObject.FindGameObjectsWithTag("enemy");
         enemyMax = enemyCharacter.Length;
+    }
+
+    void MoveResultScene()
+    {
+        SceneManager.LoadScene("");
     }
 
 }
