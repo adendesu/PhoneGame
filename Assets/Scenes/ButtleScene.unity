@@ -2578,6 +2578,7 @@ GameObject:
   - component: {fileID: 1079462941}
   - component: {fileID: 1079462946}
   - component: {fileID: 1079462947}
+  - component: {fileID: 1079462948}
   m_Layer: 0
   m_Name: ButtleManager
   m_TagString: Untagged
@@ -2610,8 +2611,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttleCharacterView: {fileID: 606658753}
-  battleCharacterStatusModel: {fileID: 0}
-  battleProgress: {fileID: 0}
+  battleCharacterStatusModel: {fileID: 1079462948}
+  battleProgress: {fileID: 1079462946}
 --- !u!114 &1079462943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2686,6 +2687,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11daba467a411054fb1364b78d2f0f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1079462948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079462940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4fe3b022429c774a8733ee079cbaefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterCount:
+    value: 0
+  enemyCount:
+    value: 0
 --- !u!1 &1151014590
 GameObject:
   m_ObjectHideFlags: 0

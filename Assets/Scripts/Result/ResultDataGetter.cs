@@ -5,10 +5,10 @@ using Cysharp.Threading.Tasks;
 
 public class ResultDataGetter : ResultManager
 {
-    protected override UniTask GetBattleStageData()
+    protected override async UniTask GetBattleStageData()
     {
         GameObject battleDataObject = GameObject.FindGameObjectWithTag("EnemyData");
-        
+
     }
 
     

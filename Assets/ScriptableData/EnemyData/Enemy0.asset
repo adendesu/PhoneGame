@@ -17,6 +17,6 @@ MonoBehaviour:
     type: 3}
   enemySprite: {fileID: 0}
   enemyName: "\u3086\u3046\u308C\u3044"
-  enemyHp: 5
-  enemyAttack: 5
-  enemyDefense: 5
+  enemyHp: 20
+  enemyAttack: 0
+  enemyDefense: 100

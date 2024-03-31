@@ -14,7 +14,7 @@ public class SendEnemyData: MonoBehaviour
         enemySaver.enemyCounts.Clear();
         enemySaver.enemyIDs.Clear();
         enemySaver.enemyLvs.Clear();
-        for (int i = 0; i < stageEnemyData.enemyID.Length; i++) 
+        for (int i = 0; i < stageEnemyData.enemyCount.Length; i++) 
         {
             enemySaver.enemyCounts.Add(stageEnemyData.enemyCount[i]);
             enemySaver.enemyIDs.Add(stageEnemyData.enemyID[i]);
