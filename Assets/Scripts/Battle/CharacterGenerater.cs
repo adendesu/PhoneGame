@@ -17,8 +17,10 @@ public class CharacterGenerater : ButtleManager
   protected override async UniTask GenerateCharacter()
   {
       enemyDataSaver = GameObject.FindGameObjectWithTag("EnemyData").GetComponent<EnemyDataSaver>();
+      
         for (int i = 0; i < enemyDataSaver.enemyCounts[stageNumber]; i++)
         {
+            Debug.Log(enemyDatas.enemyStatuses[enemyDataSaver.enemyIDs[i]].enemyName);
             GameObject enemy = Instantiate(enemyDatas.enemyStatuses[enemyDataSaver.enemyIDs[i]].enemyModel,enemyGenePoint[i].transform.position,Quaternion.Euler(0,-90,0));
             BasisCharacter basisCharacter =  enemy.AddComponent<BasisCharacter>();
             basisCharacter.manager = gameObject;
@@ -35,7 +37,7 @@ public class CharacterGenerater : ButtleManager
             buttleCharacterStatus.defense.Value = enemyDatas.enemyStatuses[enemyDataSaver.enemyIDs[i]].Defense *
                                                   enemyDataSaver.enemyLvs[i];
             buttleCharacterStatus.tagName = "enemy";
-            buttleCharacterStatus.hp.Subscribe(_ => buttleScripts.SendDeathMotion(buttleCharacterStatus.tagName,buttleCharacterStatus.stageNumber));
+            buttleCharacterStatus.hp.Subscribe(_ => buttleScripts.SendDeathMotion(buttleCharacterStatus.hp.Value,buttleCharacterStatus.tagName,buttleCharacterStatus.stageNumber));
 
         }
 

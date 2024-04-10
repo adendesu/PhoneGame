@@ -10,12 +10,6 @@ public class ResultManager : MonoBehaviour
     {
        await GetBattleStageData();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
     protected virtual async UniTask  GetBattleStageData(){}
 }

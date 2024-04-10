@@ -41,8 +41,11 @@ public class ButtleScripts : ButtleManager
        
     }
 
-    public void SendDeathMotion(string tagName,int i)
+    public void SendDeathMotion(float hp, string tagName,int i)
     {
+        Debug.Log(hp);
+        if(hp>0)return;
+        
         battleCharacterStatusModel.DeathMotion(tagName,i);
     }
 }

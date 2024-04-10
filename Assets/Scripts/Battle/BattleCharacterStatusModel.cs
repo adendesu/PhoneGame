@@ -31,8 +31,10 @@ public class BattleCharacterStatusModel : MonoBehaviour
       }
       else if(objectTagName == "enemy")
       {
-         Destroy(enemyCharacter[number]); 
          GetEnemy();
+         Destroy(enemyCharacter[number]);
+         GetEnemy();
+        Debug.Log("Death");
       }
       
       
@@ -48,5 +50,6 @@ public class BattleCharacterStatusModel : MonoBehaviour
    {
       enemyCharacter = GameObject.FindGameObjectsWithTag("enemy"); ;
       enemyCount.Value = enemyCharacter.Length;
+      Debug.Log("enemycount:"+enemyCount.Value);
    }
 }

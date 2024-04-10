@@ -111,6 +111,7 @@ public class BattleProgress : MonoBehaviour
 
    public void GetEnemy()
     {
+        Debug.Log("GetEnemy");
        enemyCharacter = GameObject.FindGameObjectsWithTag("enemy");
         enemyMax = enemyCharacter.Length;
     }

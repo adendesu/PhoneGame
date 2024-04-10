@@ -14,12 +14,23 @@ public class SendEnemyData: MonoBehaviour
         enemySaver.enemyCounts.Clear();
         enemySaver.enemyIDs.Clear();
         enemySaver.enemyLvs.Clear();
+
         for (int i = 0; i < stageEnemyData.enemyCount.Length; i++) 
         {
             enemySaver.enemyCounts.Add(stageEnemyData.enemyCount[i]);
+        }
+        
+        for (int i = 0; i < stageEnemyData.enemyID.Length; i++)
+        {
             enemySaver.enemyIDs.Add(stageEnemyData.enemyID[i]);
+        }
+
+        for (int i = 0; i < stageEnemyData.enemyLv.Length; i++)
+        {
             enemySaver.enemyLvs.Add(stageEnemyData.enemyLv[i]);
         }
+        
+        
 
         enemySaver.thisStageNumber = stageEnemyData.stageNumber;
         sceneMoveButton.OnNextButton("SelectCharacter");
